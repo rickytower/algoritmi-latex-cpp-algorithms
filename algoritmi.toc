@@ -1,0 +1,6 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Strutture dati}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Stack minimo/coda minima}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Modifica dello stack}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Modifica della coda -- metodo 1}{2}{subsubsection.1.1.2}%
