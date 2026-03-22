@@ -65,24 +65,56 @@ tabsize=2
 		int minimum = st.top().second;
 	\end{lstlisting}Lo stack ha un comportamento LIFO.
 	\subsubsection{Modifica della coda -- metodo 1}La coda ha un comportamento FIFO. Non memorizza tutti gli elementi: vengono memorizzati solo quelli necessari per determinare il minimo. La coda viene mantenuta in \textit{ordine non decrescente}\footnote{cioè $\forall i \in [0,\texttt{coda.length}()-1]\colon \texttt{coda[i]} \le \texttt{coda[i+1]}$} (il valore più piccolo sarà memorizzato nella testa). Il minimo effettivo deve sempre essere mantenuto nella coda. 
-	
+	\begin{lstlisting}[caption={implementazione della coda.}]
+		deque<int> q;
+	\end{lstlisting}
+	\begin{lstlisting}[caption={trovare il minimo.}]
+		int minimum = q.front();
+	\end{lstlisting}
 	Prima di aggiungere un nuovo elemento nella coda è sufficiente effettuare un ``taglio'': vengono rimossi tutti gli elementi finali della coda che sono più grandi del nuovo elemento e successivamente si aggiunge il nuovo elemento alla coda. In questo modo viene mantenuto l'ordine non decrescente e non viene perso l'elemento corrente se in qualsiasi passaggio successivo è l'elemento minimo. Tutti gli elementi che vengono rimossi non potranno mai essere primi. 
+
+	\begin{lstlisting}[caption={aggiungere un elemento.}]
+		while (!q.empty() && q.back() > new_element)
+		q.pop_back();
+		q.push_back(new_element);
+	\end{lstlisting}
 	
 	Quando si vuole estrarre un elemento dalla testa, potrebbe non essere presente se è stato rimosso in precedenza con un elemento più piccolo. Pertanto quando si elimina un elemento da una coda bisogna conoscerne il valore. Se la testa della coda ha lo stesso valore, può essere rimossa in sicurezza, altrimenti non viene apportata nessuna modifica.
-	\begin{lstlisting}[caption={implementazione della coda.}]
-		deque<int> 1;
+	\begin{lstlisting}[caption={rimuovere un elemento.}]
+		if (!q.empty() && q.front() == remove_element)
+		q.pop_front();
 	\end{lstlisting}
-
+	Tutte queste operazioni richiedono $O(1)$.
+	\begin{figure}[tbph]
+		\centering
+		\includegraphics[width=0.7\linewidth]{queue-aggiunta-metodo1}
+		\caption{effetto dell'inserimento di un nuovo elemento sulla coda.}
+		\label{fig:queue-aggiunta-metodo1}
+	\end{figure}
+	\subsubsection{Modifica della coda -- metodo 2}
+	Questa è una modifica del metodo 1. Si memorizza l'indice per ciascun elemento della coda, ricordando anche quanti elementi sono stati già aggiunti e rimossi.
+\begin{lstlisting}[caption={implementazione della coda con contatori di elementi aggiunti e rimossi.}]
+	deque<pair<int, int>> q;
+	int cnt_added = 0;
+	int cnt_removed = 0;
+\end{lstlisting}
 \begin{lstlisting}[caption={trovare il minimo.}]
-	int minimum = q.front();
+	int minimum = q.front().first;
 \end{lstlisting}
 \begin{lstlisting}[caption={aggiungere un elemento.}]
-	while (!q.empty() && q.back() > new_element)
+	while (!q.empty() && q.back().first > new_element)
 	q.pop_back();
-	q.push_back(new_element);
+	q.push_back({new_element, cnt_added});
+	cnt_added++;
 \end{lstlisting}
+La modifica più rilevante è in questa porzione di codice (compararla con quella del metodo 1).
 \begin{lstlisting}[caption={rimuovere un elemento.}]
-	if (!q.empty() && q.front() == remove_element)
+	if (!q.empty() && q.front().second == cnt_removed) 
 	q.pop_front();
+	cnt_removed++;
 \end{lstlisting}
+
+
+
+
 \end{document}
