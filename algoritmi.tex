@@ -144,4 +144,23 @@ Si eseguono tutte le operazioni in $O(1)$ in media (ogni elemento verrà aggiunt
 	s2.pop();
 \end{lstlisting}
 
+\subsubsection{Trovare il minimo per tutti i sottoarray di lunghezza fissa}
+Si supponga di ricevere un array \texttt{A} di lunghezza $N$ e un dato $M$ tale che $M\le N$. Si deve trovare il minimo di ogni sottoarray di lunghezza $M$ in questo array, cioè si trovi: $$\min_{0\le i\le M-1}A[i],\min_{1\le i \le M} A[i], \min_{2 \le i \le M+1} A[i], \dots, \min_{N-M\le i \le N-1}A[i]$$
+Questo problema deve essere risolto in tempo lineare, cioè $O(n)$.
+\begin{figure}[tbph]
+	\centering
+	\includegraphics[width=0.7\linewidth]{sottoarray-stack-coda}
+	\caption{sottoarray di dimensione $M$.}
+	\label{fig:sottoarray-stack-coda}
+\end{figure}
+
+È possibile utilizzare una qualsiasi delle tre code modificate per risolvere il problema. 
+\begin{lstlisting}
+	for(i = 0; i < N; i++){
+		for(j = 0; j < M+i; j++){
+			
+		}
+	}
+\end{lstlisting}
+
 \end{document}
