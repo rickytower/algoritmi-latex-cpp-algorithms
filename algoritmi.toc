@@ -5,3 +5,4 @@
 \contentsline {subsubsection}{\numberline {1.1.1}Modifica dello stack}{1}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Modifica della coda -- metodo 1}{2}{subsubsection.1.1.2}%
 \contentsline {subsubsection}{\numberline {1.1.3}Modifica della coda -- metodo 2}{2}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Modifica della coda -- metodo 3}{3}{subsubsection.1.1.4}%

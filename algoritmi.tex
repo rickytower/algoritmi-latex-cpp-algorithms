@@ -113,8 +113,35 @@ La modifica più rilevante è in questa porzione di codice (compararla con quell
 	q.pop_front();
 	cnt_removed++;
 \end{lstlisting}
+\subsubsection{Modifica della coda -- metodo 3}
+Questo è un altro metodo per trovare il minimo in $O(1)$ modificando una coda. È più complicato da implementare ma permette di memorizzare tutti gli elementi e di rimuovere un elemento dalla parte anteriore senza conoscerne il valore. L'idea è di ridurre il problema al problema degli stack, simulando una coda. Si creano due pile, \texttt{s1} e \texttt{s2}. Si aggiungono nuovi elementi allo stack \texttt{s1}. e si rimuovono da \texttt{s2}. Se in qualsiasi momento \texttt{s2} è vuoto, si spostano tutti gli elementi da \texttt{s1} a \texttt{s2} (che inverte l'ordine degli elementi). Infine, per trovare il minimo in  una coda è sufficiente trovare il minimo di entrambi gli stack. \par
+Si eseguono tutte le operazioni in $O(1)$ in media (ogni elemento verrà aggiunto una volta allo stack \texttt{s1}, una volta trasferito a \texttt{s2} e una volta estratto da \texttt{s2}).
+\begin{lstlisting}[caption={implementazione.}]
+	stack<pair<int, int>> s1, s2;
+\end{lstlisting}
+\begin{lstlisting}[caption={trovare il minimo.}]
+	if (s1.empty() || s2.empty()) 
+		minimum = s1.empty() ? s2.top().second : s1.top().second;
+	else
+		minimum = min(s1.top().second, s2.top().second);
+\end{lstlisting}
 
+\begin{lstlisting}[caption={aggiungi elemento.}]
+	int minimum = s1.empty() ? new_element : min(new_element, s1.top().second);
+	s1.push({new_element, minimum});
+\end{lstlisting}
 
-
+\begin{lstlisting}[caption={rimozione di un elemento.}]
+	if (s2.empty()) {
+		while (!s1.empty()) {
+			int element = s1.top().first;
+			s1.pop();
+			int minimum = s2.empty() ? element : min(element, s2.top().second);
+			s2.push({element, minimum});
+		}
+	}
+	int remove_element = s2.top().first;
+	s2.pop();
+\end{lstlisting}
 
 \end{document}
