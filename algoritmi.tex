@@ -13,6 +13,7 @@
 \usepackage{cleveref}
 \usepackage{soul}
 \usepackage{semantic}
+
 %\lstset{
 %	basicstyle=\footnotesize\ttfamily,
 %	mathescape, 
@@ -28,7 +29,7 @@
 language=C++,
 basicstyle=\footnotesize\ttfamily,
 keywordstyle=\color{blue},
-commentstyle=\color{green},
+commentstyle=\color{green!50!black},
 stringstyle=\color{red},
 numbers=left,
 numberstyle=\tiny,
@@ -155,12 +156,35 @@ Questo problema deve essere risolto in tempo lineare, cioè $O(n)$.
 \end{figure}
 
 È possibile utilizzare una qualsiasi delle tre code modificate per risolvere il problema. 
-\begin{lstlisting}
-	for(i = 0; i < N; i++){
-		for(j = 0; j < M+i; j++){
-			
-		}
-	}
-\end{lstlisting}
+\begin{enumerate}
+	\item Seleziona la finestra.
+	\item Aggiungi alla coda tutti gli elementi della finestra.
+	\item Ricava il minimo.
+	\item Rimuovi il minimo.
+	\item Sposta la finestra in avanti di uno.
+\end{enumerate}
 
+
+ Poiché tutte le operazioni sulla coda richiedono tempo costante in media, la complessità complessiva dell'algoritmo risulta $O(n)$.
+
+\begin{lstlisting}[numbers=none,caption={esempio.}]
+	Supponiamo di avere un array:
+	A = [3, 1, 4, 2, 5]
+	e vogliamo trovare il minimo di ogni sottovettore di lunghezza M = 3.
+	
+	Passo 1: Inizializzazione
+	Aggiungiamo i primi 3 elementi alla coda modificata:
+	[3, 1, 4] → il minimo è 1
+	
+	Passo 2: Scorrimento
+	Rimuoviamo il primo elemento (3) e aggiungiamo il successivo (2):
+	[1, 4, 2] → il minimo è 1
+	
+	Passo 3: Scorrimento
+	Rimuoviamo il primo (1) e aggiungiamo il successivo (5):
+	[4, 2, 5] → il minimo è 2
+	
+	Risultato finale:
+	Minimi dei sottovettori: [1, 1, 2]
+\end{lstlisting}
 \end{document}
