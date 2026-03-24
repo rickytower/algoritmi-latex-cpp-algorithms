@@ -36,7 +36,8 @@ numberstyle=\tiny,
 frame=none,
 backgroundcolor=\color{gray!5},
 breaklines=true,
-tabsize=2
+tabsize=2, 
+mathescape
 }
 \author{Riccardo Torre}
 \title{Algoritmi}
@@ -168,4 +169,16 @@ Questo problema deve essere risolto in tempo lineare, cioè $O(n)$.
 
  Poiché tutte le operazioni sulla coda richiedono tempo costante in media, la complessità complessiva dell'algoritmo risulta $O(n)$.
 \lstinputlisting{deque.cpp}
+
+\subsection{Sparse table}
+Una sparse table è una struttura dati che consente di rispondere a query di intervallo, rispondendo nella maggior parte dei casi in $O(\log n)$, a la sua vera potenza è rispondere a query con intervallo minimo/massimo in $O(1)$. L'unico inconveniente di questa struttura dati è che può essere utilizzata solo su \textit{matrici immutabili}. Ciò significa che la matrice non può essere modificato tra due query. Se un elemento della matrice cambia, è necessario ricalcolare l'intera struttura dati.
+
+\paragraph{Intuizione}Qualsiasi numero non negativo può essere rappresentato in modo univoco come somma di potenze decrescenti di due. Questa è solo una variante della rappresentazione binaria di un numero. Ad esempio $13=(1101)_2=8+4+1$. Per un certo numero $x$ possono essere al massimo $\lceil \log_2 x\rceil$ addendi.\par Con lo stesso ragionamento, qualsiasi intervallo può essere rappresentato in modo univoco come un'unione di intervalli con lunghezze che sono potenze decrescenti di due. Ad esempio $[2,14]=[2,9]\cup [10,13]\cup [14,14]$, dove l'intervallo completo ha lunghezza 13 e i singoli intervalli hanno rispettivamente lunghezza 8,4 e 1. E anche qui l'unione è composta al massimo da $\lceil \log_2(\textit{lunghzza dell'intervallo})\rceil$ molti intervalli.
+\begin{lstlisting}[language=python,caption={in python3 si calcolerebbe in questo modo.}]
+	import math
+	math.ceil(math.log(13,2)) # risulta 4 $\rightarrow \lceil \log_2 13\rceil$
+\end{lstlisting}
+
+L'idea alla base delle tabelle sparse è quella di precalcolare tutte le risposte per query di intervallo con potenza di due lunghezze. Successivamente è possibile rispondere a una query di intervallo diverso suddividendo l'intervallo in intervalli con potenza di due lunghezze, cercando le risposte precalcolate e combinandole per ricevere una risposta completa.
+
 \end{document}

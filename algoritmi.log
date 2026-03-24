@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.17)  24 MAR 2026 14:32
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.17)  24 MAR 2026 15:30
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -521,31 +521,31 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 (./algoritmi.aux)
 \openout1 = `algoritmi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
-3.
+4.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -581,21 +581,21 @@ LaTeX Font Info:    ... okay on input line 43.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \it@ocap on input line 43.
-LaTeX Info: Redefining \it@ccap on input line 43.
+LaTeX Info: Redefining \it@ocap on input line 44.
+LaTeX Info: Redefining \it@ccap on input line 44.
 \c@lstlisting=\count312
-Package hyperref Info: Link coloring OFF on input line 43.
+Package hyperref Info: Link coloring OFF on input line 44.
 (./algoritmi.out) (./algoritmi.out)
 \@outlinefile=\write3
 \openout3 = `algoritmi.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -610,9 +610,9 @@ Package cleveref Info: loaded `italian' language definitions on input line 2.
 File: stack-min-el.pdf Graphic file (type pdf)
 <use stack-min-el.pdf>
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 57.
+nput line 58.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-7.
+8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -624,20 +624,24 @@ File: queue-aggiunta-metodo1.pdf Graphic file (type pdf)
  [2] [3]
 File: sottoarray-stack-coda.pdf Graphic file (type pdf)
 <use sottoarray-stack-coda.pdf>
- (./deque.cpp [4]) [5] (./algoritmi.aux
+ (./deque.cpp [4]) [5] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlan
+g1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+[6] (./algoritmi.aux
 Package cleveref Info: loaded `italian' language definitions on input line 18.
 Package cleveref Info: loaded `italian' language definitions on input line 19.
 )
 Package rerunfilecheck Info: File `algoritmi.out' has not changed.
-(rerunfilecheck)             Checksum: 86C894432DFCB3E98146B280310169C6;1566.
+(rerunfilecheck)             Checksum: D0C301A83007EB665E097B8D7ADD455B;1686.
  ) 
 Here is how much of TeX's memory you used:
- 16117 strings out of 478682
- 263147 string characters out of 5849006
- 2028018 words of memory out of 6000000
- 35996 multiletter control sequences out of 15000+600000
- 557972 words of font info for 78 fonts, out of 8000000 for 9000
+ 16248 strings out of 478682
+ 264593 string characters out of 5849006
+ 2029018 words of memory out of 6000000
+ 36124 multiletter control sequences out of 15000+600000
+ 566508 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,8n,76p,733b,1799s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,76p,818b,1800s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on algoritmi.pdf (5 pages).
+Output written on algoritmi.pdf (6 pages).
