@@ -9,3 +9,4 @@
 \contentsline {subsubsection}{\numberline {1.1.5}Trovare il minimo per tutti i sottoarray di lunghezza fissa}{4}{subsubsection.1.1.5}%
 \contentsline {subsection}{\numberline {1.2}Sparse table}{5}{subsection.1.2}%
 \contentsline {paragraph}{Intuizione}{6}{section*.3}%
+\contentsline {paragraph}{Precalcolo}{6}{section*.4}%

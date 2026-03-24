@@ -180,5 +180,20 @@ Una sparse table è una struttura dati che consente di rispondere a query di int
 \end{lstlisting}
 
 L'idea alla base delle tabelle sparse è quella di precalcolare tutte le risposte per query di intervallo con potenza di due lunghezze. Successivamente è possibile rispondere a una query di intervallo diverso suddividendo l'intervallo in intervalli con potenza di due lunghezze, cercando le risposte precalcolate e combinandole per ricevere una risposta completa.
+\paragraph{Precalcolo}
+Si utilizzerà un array bidimensionale per memorizzare le risposte alle query precalcolate. \texttt{st[i][j]} memorizzerà la risposta per l'intervallo $[j,j+2^i-1]$ di lunghezza $2^i$. La dimensione dell'array bidimensionale sarà $(K-1)\times MAXN$, dove $MAXN$ è la lunghezza massima possibile dell'array. $K$ deve soddisfare $K\ge \lfloor \log_2 MAXN\rfloor$, perché $2^{\lfloor \log_2 MAXN\rfloor}$ è la più grande potenza di due gamme, che si deve supportare. Per array di lunghezza ragionevole ($\le 10^7$ elementi), $K=25$ è un buon rapporto qualità-prezzo.
 
+Si importa $MAXN$ come il numero di colonne della matrice per consentire accessi consecutivi alla memoria (cache).
+\begin{lstlisting}
+	int st[k+1][MAXN]; //ricorda che questa notazione significa nome_matrice[righe][colonne]
+\end{lstlisting} 
+Perché la gamma $[j, j+2^i-1]$ di lunghezza $2^i$ si divide bene negli intervalli $[j,j+2^{i-1}-1$ e $j+2^{i-1}, j+2^i-1]$, entrambi di lunghezza $2^{i-1}$, si può generare la tabella in modo efficiente utilizzando la programmazione dinamica:
+\begin{lstlisting}
+	std::copy(array.begin(), array.end(), st[0]);
+	
+	for (int i = 1; i <= K; i++)
+		for (int j = 0; j + (1 << i) <= N; j++)
+			st[i][j] = f(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
+\end{lstlisting}
+La funzione $f$ dipenderà dal tipo di query. Per le query con somma dell'intervallo calcolerà la somma, per le query con somma minima dell'intervallo calcolerà il minimo. La complessità temporale del precalcolo è $O(N\log N)$.
 \end{document}
