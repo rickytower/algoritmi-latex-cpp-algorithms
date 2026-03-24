@@ -54,7 +54,6 @@ mathescape
 		\caption{l'elemento minimo viene calcolato ad ogni inserimento e salvato sulla seconda colonna dell'elemento in cima allo stack (in rosso).}
 		\label{fig:stack-min-el}
 	\end{figure}
-	\paragraph{Aggiungere un elemento}
 	\begin{lstlisting}[caption={aggiungere un elemento.}]
 		int new_min = st.empty() ? new_elem : min(new_elem, st.top().second);
 		st.push({new_elem, new_min});
@@ -173,14 +172,14 @@ Questo problema deve essere risolto in tempo lineare, cioè $O(n)$.
 \subsection{Sparse table}
 Una sparse table è una struttura dati che consente di rispondere a query di intervallo, rispondendo nella maggior parte dei casi in $O(\log n)$, a la sua vera potenza è rispondere a query con intervallo minimo/massimo in $O(1)$. L'unico inconveniente di questa struttura dati è che può essere utilizzata solo su \textit{matrici immutabili}. Ciò significa che la matrice non può essere modificato tra due query. Se un elemento della matrice cambia, è necessario ricalcolare l'intera struttura dati.
 
-\paragraph{Intuizione}Qualsiasi numero non negativo può essere rappresentato in modo univoco come somma di potenze decrescenti di due. Questa è solo una variante della rappresentazione binaria di un numero. Ad esempio $13=(1101)_2=8+4+1$. Per un certo numero $x$ possono essere al massimo $\lceil \log_2 x\rceil$ addendi.\par Con lo stesso ragionamento, qualsiasi intervallo può essere rappresentato in modo univoco come un'unione di intervalli con lunghezze che sono potenze decrescenti di due. Ad esempio $[2,14]=[2,9]\cup [10,13]\cup [14,14]$, dove l'intervallo completo ha lunghezza 13 e i singoli intervalli hanno rispettivamente lunghezza 8,4 e 1. E anche qui l'unione è composta al massimo da $\lceil \log_2(\textit{lunghzza dell'intervallo})\rceil$ molti intervalli.
+\subsubsection{Intuizione}Qualsiasi numero non negativo può essere rappresentato in modo univoco come somma di potenze decrescenti di due. Questa è solo una variante della rappresentazione binaria di un numero. Ad esempio $13=(1101)_2=8+4+1$. Per un certo numero $x$ possono essere al massimo $\lceil \log_2 x\rceil$ addendi.\par Con lo stesso ragionamento, qualsiasi intervallo può essere rappresentato in modo univoco come un'unione di intervalli con lunghezze che sono potenze decrescenti di due. Ad esempio $[2,14]=[2,9]\cup [10,13]\cup [14,14]$, dove l'intervallo completo ha lunghezza 13 e i singoli intervalli hanno rispettivamente lunghezza 8,4 e 1. E anche qui l'unione è composta al massimo da $\lceil \log_2(\textit{lunghzza dell'intervallo})\rceil$ molti intervalli.
 \begin{lstlisting}[language=python,caption={in python3 si calcolerebbe in questo modo.}]
 	import math
 	math.ceil(math.log(13,2)) # risulta 4 $\rightarrow \lceil \log_2 13\rceil$
 \end{lstlisting}
 
 L'idea alla base delle tabelle sparse è quella di precalcolare tutte le risposte per query di intervallo con potenza di due lunghezze. Successivamente è possibile rispondere a una query di intervallo diverso suddividendo l'intervallo in intervalli con potenza di due lunghezze, cercando le risposte precalcolate e combinandole per ricevere una risposta completa.
-\paragraph{Precalcolo}
+\subsubsection{Precalcolo}
 Si utilizzerà un array bidimensionale per memorizzare le risposte alle query precalcolate. \texttt{st[i][j]} memorizzerà la risposta per l'intervallo $[j,j+2^i-1]$ di lunghezza $2^i$. La dimensione dell'array bidimensionale sarà $(K-1)\times MAXN$, dove $MAXN$ è la lunghezza massima possibile dell'array. $K$ deve soddisfare $K\ge \lfloor \log_2 MAXN\rfloor$, perché $2^{\lfloor \log_2 MAXN\rfloor}$ è la più grande potenza di due gamme, che si deve supportare. Per array di lunghezza ragionevole ($\le 10^7$ elementi), $K=25$ è un buon rapporto qualità-prezzo.
 
 Si importa $MAXN$ come il numero di colonne della matrice per consentire accessi consecutivi alla memoria (cache).
@@ -197,7 +196,7 @@ Perché la gamma $[j, j+2^i-1]$ di lunghezza $2^i$ si divide bene negli interval
 \end{lstlisting}
 La funzione $f$ dipenderà dal tipo di query. Per le query con somma dell'intervallo calcolerà la somma, per le query con somma minima dell'intervallo calcolerà il minimo. La complessità temporale del precalcolo è $O(N\log N)$.
 
-\paragraph{Query sulla soma degli intervalli}
+\subsubsection{Query sulla soma degli intervalli}
 Per questo tipo di query, si vuole trovare la somma di tutti i valori in un intervallo. Quindi la definizione naturale della funzione $f$ è $f(x,y)=x+y$. Si può costruire la struttura dati con:
 \begin{lstlisting}
 	long long st[K + 1][MAXN];
@@ -220,7 +219,7 @@ Per rispondere alla query di somma per l'intervallo $[L,R]$, si itera su tutte l
 	}
 \end{lstlisting}
 La complessità temporale per una query Range Sum è $O(K)=O(\log MAXN)$.
-\paragraph{Query minime di intervallo (RMQ)}
+\subsubsection{Query minime di intervallo (RMQ)}
 Sono queste le query in cui la tabella sparsa eccelle. Quando si vole calcolare il minimo di un intervallo, non imposta se si elabora un valore nell'intervallo una o due volte. Pertanto, invece di suddividere un intervallo in più intervalli, lo si può anche suddividere in soli due intervalli sovrapposti con potenza di due lunghezze. Ad esempio, si può dividere l'intervallo $[1,6]$, nelle gamme $[1,4]$ e $[3,6]$. L'intervallo minimo di $[1,6]$ è chiaramente uguale al minimo dell'intervallo minimo di $[1,4]$ e l'intervallo minimo di $[3,6]$. Quindi si può calcolare il minimo dell'intervallo $[L,R]$ con.
 $$\min(st[i][L], st[i][R-2^i+1])$$ dove $i=\log_2(R-L+1)$. Ciò richiede di essere in grado di calcolare $log_2(R-L+1)$ velocemente. È possibile ottenere questo risultato precalcolando tutti i logaritmi:
 \begin{lstlisting}
@@ -246,7 +245,29 @@ Il minimo di un intervallo $[L,R]$ può essere calcolato con:
 	int minimum = min(st[i][L], st[i][R - (1 << i) + 1]);
 \end{lstlisting}
 La complessità temporale per una query minima di intervallo è $O(1)$.
-\paragraph{Limitazioni}L'approccio sopra discusso supporta solo query di funzioni idempotenti. In altre parole, funziona benissimo per le query con l'intervallo minimo, ma non è possibile rispondere alle query con somma degli intervalli utilizzando questo approccio. 
+\subsubsection{Limitazioni}L'approccio sopra discusso supporta solo query di funzioni idempotenti. In altre parole, funziona benissimo per le query con l'intervallo minimo, ma non è possibile rispondere alle query con somma degli intervalli utilizzando questo approccio. 
 
 Esistono strutture dati simili in grado di gestire qualsiasi tipo di funzione associativa e rispondere a query di intervallo in $O(1)$. Una si chiama \textit{tabella sparsa disgiunta}. Un'altra sarebbe l'\textit{albero quadrato}.
+
+\subsection{Unione di insiemi disgiunti}Vengono dati diversi elementi, ognuno dei quali è un insieme separato. Una DSU ha un'operazione per combinare due insiemi qualsiasi e sarà in grado di dire in quale insieme si trova un elemento specifico. La versione classica introduce anche una terza operazione: può creare un insieme a partire da un nuovo elemento. \par Pertanto l'interfaccia di base di questa struttura dati è composta da sole tre operazioni:
+\begin{itemize}
+	\item \texttt{make\_set(v)}: crea un nuovo set costituito dal nuovo elemento \texttt{v};
+	\item \texttt{union\_sets(a,b)}: unisce i due insiemi specificati (si trova l'insieme in cui è presente l'elemento $a$ e si trova l'insieme in cui è presente l'elemento \texttt{b});
+	\item \texttt{find\_set(v)}: restituisce il rappresentante (detto anche leader) dell'insieme che contiene l'elemento \texttt{v}. Questo rappresentante è un elemento del suo insieme corrispondente. Viene selezionato in ogni set della struttura dati stessa (e può cambiare nel tempo, vale a dire dopo \texttt{union\_sets} chiamate). Questo rappresentante può essere utilizzato per verificare se due elementi fanno parte o meno dello stesso insieme. Due elementi $a$ e $b$ sono nello stesso insieme, se \texttt{find\_set(a) == find\_set(b)}. Altrimenti si trovano in set diversi.
+\end{itemize} 
+La struttura dati consente di eseguire ciascuna di queste operazioni in quasi $O(1)$ di tempo in media. 
+
+\subsubsection{Costruire una struttura dati efficiente}Si memorizzano i set sotto forma di alberi: ogni albero corrisponde a un insieme. E la radice dell'albero sarà il rappresentante/leader del set (\cref{fig:dsu1})
+\begin{figure}[tbph]
+	\centering
+	\includegraphics[width=0.7\linewidth]{dsu1}
+	\caption{rappresentazione dei set.}
+	\label{fig:dsu1}
+\end{figure}
+All'inizio ogni elemento inizia come un unico insieme, quindi ogni vertice è un albero a sé stante. Si combinano l'insieme contenente l'elemento 1 e l'insieme contenente l'elemento 2. Poi si combinano l'insieme contenente l'elemento 3 e l'insieme contenente l'elemento 4 e nell'ultimo passaggio si combinano l'insieme contenente l'elemento 1 e l'insieme contenente l'elemento 3. 
+
+Per l'implementazione ciò significa che bisogna mantenere un array \texttt{parent} che memorizza nell'albero un riferimento al suo antenato immediato.
+
+\subsubsection{Implementazione ingenua}
+
 \end{document}

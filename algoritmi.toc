@@ -4,12 +4,15 @@
 \contentsline {subsection}{\numberline {1.1}Stack minimo/coda minima}{1}{subsection.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}Modifica dello stack}{1}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Modifica della coda -- metodo 1}{2}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Modifica della coda -- metodo 2}{2}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.3}Modifica della coda -- metodo 2}{3}{subsubsection.1.1.3}%
 \contentsline {subsubsection}{\numberline {1.1.4}Modifica della coda -- metodo 3}{3}{subsubsection.1.1.4}%
 \contentsline {subsubsection}{\numberline {1.1.5}Trovare il minimo per tutti i sottoarray di lunghezza fissa}{4}{subsubsection.1.1.5}%
 \contentsline {subsection}{\numberline {1.2}Sparse table}{5}{subsection.1.2}%
-\contentsline {paragraph}{Intuizione}{6}{section*.3}%
-\contentsline {paragraph}{Precalcolo}{6}{section*.4}%
-\contentsline {paragraph}{Query sulla soma degli intervalli}{6}{section*.5}%
-\contentsline {paragraph}{Query minime di intervallo (RMQ)}{7}{section*.6}%
-\contentsline {paragraph}{Limitazioni}{8}{section*.7}%
+\contentsline {subsubsection}{\numberline {1.2.1}Intuizione}{6}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Precalcolo}{6}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Query sulla soma degli intervalli}{7}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Query minime di intervallo (RMQ)}{7}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Limitazioni}{8}{subsubsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.3}Unione di insiemi disgiunti}{8}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Costruire una struttura dati efficiente}{8}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Implementazione ingenua}{9}{subsubsection.1.3.2}%
