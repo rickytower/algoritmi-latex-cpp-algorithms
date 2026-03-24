@@ -10,3 +10,6 @@
 \contentsline {subsection}{\numberline {1.2}Sparse table}{5}{subsection.1.2}%
 \contentsline {paragraph}{Intuizione}{6}{section*.3}%
 \contentsline {paragraph}{Precalcolo}{6}{section*.4}%
+\contentsline {paragraph}{Query sulla soma degli intervalli}{6}{section*.5}%
+\contentsline {paragraph}{Query minime di intervallo (RMQ)}{7}{section*.6}%
+\contentsline {paragraph}{Limitazioni}{8}{section*.7}%

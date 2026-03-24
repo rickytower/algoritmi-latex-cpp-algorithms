@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.17)  24 MAR 2026 15:45
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.17)  24 MAR 2026 16:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -628,7 +628,7 @@ File: sottoarray-stack-coda.pdf Graphic file (type pdf)
 g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-[6] (./algoritmi.aux
+[6] [7] [8] (./algoritmi.aux
 Package cleveref Info: loaded `italian' language definitions on input line 18.
 Package cleveref Info: loaded `italian' language definitions on input line 19.
 )
@@ -636,12 +636,12 @@ Package rerunfilecheck Info: File `algoritmi.out' has not changed.
 (rerunfilecheck)             Checksum: D0C301A83007EB665E097B8D7ADD455B;1686.
  ) 
 Here is how much of TeX's memory you used:
- 16264 strings out of 478682
- 264721 string characters out of 5849006
+ 16272 strings out of 478682
+ 264776 string characters out of 5849006
  2029018 words of memory out of 6000000
- 36140 multiletter control sequences out of 15000+600000
+ 36148 multiletter control sequences out of 15000+600000
  566508 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,8n,76p,818b,1800s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on algoritmi.pdf (6 pages).
+Output written on algoritmi.pdf (8 pages).
