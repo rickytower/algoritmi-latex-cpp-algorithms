@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.17)  23 MAR 2026 19:08
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.17)  24 MAR 2026 14:32
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -624,11 +624,7 @@ File: queue-aggiunta-metodo1.pdf Graphic file (type pdf)
  [2] [3]
 File: sottoarray-stack-coda.pdf Graphic file (type pdf)
 <use sottoarray-stack-coda.pdf>
- [4]
-Missing character: There is no → ("2192) in font ec-lmtt8!
-Missing character: There is no → ("2192) in font ec-lmtt8!
-Missing character: There is no → ("2192) in font ec-lmtt8!
-[5] (./algoritmi.aux
+ (./deque.cpp [4]) [5] (./algoritmi.aux
 Package cleveref Info: loaded `italian' language definitions on input line 18.
 Package cleveref Info: loaded `italian' language definitions on input line 19.
 )
@@ -636,12 +632,12 @@ Package rerunfilecheck Info: File `algoritmi.out' has not changed.
 (rerunfilecheck)             Checksum: 86C894432DFCB3E98146B280310169C6;1566.
  ) 
 Here is how much of TeX's memory you used:
- 16134 strings out of 478682
- 263451 string characters out of 5849006
- 1921018 words of memory out of 6000000
- 36018 multiletter control sequences out of 15000+600000
- 557804 words of font info for 77 fonts, out of 8000000 for 9000
+ 16117 strings out of 478682
+ 263147 string characters out of 5849006
+ 2028018 words of memory out of 6000000
+ 35996 multiletter control sequences out of 15000+600000
+ 557972 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,8n,76p,733b,1803s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,76p,733b,1799s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on algoritmi.pdf (5 pages).

@@ -75,6 +75,7 @@ tabsize=2
 	Prima di aggiungere un nuovo elemento nella coda è sufficiente effettuare un ``taglio'': vengono rimossi tutti gli elementi finali della coda che sono più grandi del nuovo elemento e successivamente si aggiunge il nuovo elemento alla coda. In questo modo viene mantenuto l'ordine non decrescente e non viene perso l'elemento corrente se in qualsiasi passaggio successivo è l'elemento minimo. Tutti gli elementi che vengono rimossi non potranno mai essere primi. 
 
 	\begin{lstlisting}[caption={aggiungere un elemento.}]
+			//dal fondo della coda si stanno rimuvendo tutti gli elementi di q maggiori di new_element
 		while (!q.empty() && q.back() > new_element)
 		q.pop_back();
 		q.push_back(new_element);
@@ -166,25 +167,5 @@ Questo problema deve essere risolto in tempo lineare, cioè $O(n)$.
 
 
  Poiché tutte le operazioni sulla coda richiedono tempo costante in media, la complessità complessiva dell'algoritmo risulta $O(n)$.
-
-\begin{lstlisting}[numbers=none,caption={esempio.}]
-	Supponiamo di avere un array:
-	A = [3, 1, 4, 2, 5]
-	e vogliamo trovare il minimo di ogni sottovettore di lunghezza M = 3.
-	
-	Passo 1: Inizializzazione
-	Aggiungiamo i primi 3 elementi alla coda modificata:
-	[3, 1, 4] → il minimo è 1
-	
-	Passo 2: Scorrimento
-	Rimuoviamo il primo elemento (3) e aggiungiamo il successivo (2):
-	[1, 4, 2] → il minimo è 1
-	
-	Passo 3: Scorrimento
-	Rimuoviamo il primo (1) e aggiungiamo il successivo (5):
-	[4, 2, 5] → il minimo è 2
-	
-	Risultato finale:
-	Minimi dei sottovettori: [1, 1, 2]
-\end{lstlisting}
+\lstinputlisting{deque.cpp}
 \end{document}
