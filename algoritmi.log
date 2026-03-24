@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.17)  24 MAR 2026 16:22
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2026.3.17)  24 MAR 2026 16:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -637,20 +637,28 @@ Overfull \hbox (3.237pt too wide) in paragraph at lines 183--184
 [6] [7]
 File: dsu1.png Graphic file (type bmp)
 <dsu1.png>
- [8] [9] (./algoritmi.aux
+ [8]
+Overfull \hbox (4.13469pt too wide) in paragraph at lines 271--272
+[]\T1/lmr/m/n/10 Infine nel-l'im-ple-men-tazione del-la fun-zione di ricer-ca r
+ap-p-re-sen-ta-ti-va (op-er-azione \T1/lmtt/m/n/10 find_set(v)\T1/lmr/m/n/10 )
+ []
+
+File: dsu2.png Graphic file (type bmp)
+<dsu2.png>
+[9] [10] (./algoritmi.aux
 Package cleveref Info: loaded `italian' language definitions on input line 18.
 Package cleveref Info: loaded `italian' language definitions on input line 19.
 )
 Package rerunfilecheck Info: File `algoritmi.out' has not changed.
-(rerunfilecheck)             Checksum: F25FDA8B20582DD1DF4138FB840E5781;3198.
+(rerunfilecheck)             Checksum: 740B0C2E6E40DC6839CFF85F7AC3FC68;3513.
  ) 
 Here is how much of TeX's memory you used:
- 16300 strings out of 478682
- 265106 string characters out of 5849006
+ 16333 strings out of 478682
+ 265523 string characters out of 5849006
  2029018 words of memory out of 6000000
- 36171 multiletter control sequences out of 15000+600000
+ 36204 multiletter control sequences out of 15000+600000
  566873 words of font info for 81 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,8n,76p,822b,1246s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,76p,1305b,1801s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on algoritmi.pdf (9 pages).
+Output written on algoritmi.pdf (10 pages).

@@ -268,6 +268,45 @@ All'inizio ogni elemento inizia come un unico insieme, quindi ogni vertice è un
 
 Per l'implementazione ciò significa che bisogna mantenere un array \texttt{parent} che memorizza nell'albero un riferimento al suo antenato immediato.
 
-\subsubsection{Implementazione ingenua}
+\subsubsection{Implementazione ingenua} Questa è una prima implementazione, piuttosto inefficiente. Successivamente si applicheranno due ottimizzazioni in modo che ogni chiamata di funzione richieda un tempo pressoché costante. Tutte le informazioni sugli insiemi di elementi saranno conservate in un array \texttt{parent}. \par Per creare un nuovo set (operazione \texttt{make\_set(v)}), si crea semplicemente un albero con radice nel vertice \texttt{v}, il che significa che è un suo antenato.\par Per combinare due set (operazione \texttt{union\_sets(a,b)}), si trovano innanzitutto il rappresentante dell'insieme in cui \texttt{a} si trova, e il rappresentante  dell'insieme in cui \texttt{b} si trova. Se i rappresentanti sono identici, e non si ha nulla da fare, gli insiemi sono già uniti. Altrimenti si può semplicemente specificare che uno dei rappresentanti è il genitore dell'altro rappresentante, combinando così i due alberi. \par Infine nell'implementazione della funzione di ricerca rappresentativa (operazione \texttt{find\_set(v)}) si scalano gli antenati del vertice \texttt{v} fino a raggiungere la radice, cioè un vertice tale che il riferimento all'antenato conduca a se stesso. Questa operazione è facilmente implementabile ricorsivamente.
+\begin{lstlisting}
+	void make_set(int v) {
+		parent[v] = v;
+	}
+	
+	int find_set(int v) {
+		if (v == parent[v])
+		return v;
+		return find_set(parent[v]);
+	}
+	
+	void union_sets(int a, int b) {
+		a = find_set(a);
+		b = find_set(b);
+		if (a != b)
+		parent[b] = a;
+	}
+\end{lstlisting}
+Tuttavia questa implementazione è inefficiente. È facile costruire un esempio in modo che gli alberi degenerino in lunghe catene. In tal caso ogni chiamata \texttt{find\_set(v)} può prendere $O(n)$ tempo.
+\subsubsection{Ottimizzazione della compressione del perccorso}È progettata per accelerare \texttt{find\_set}. Se si chiama \texttt{find\_set(v)} per qualche vertice \texttt{v}, si trova effettivamente il rappresentante \texttt{p} per tutti i vertici che si visitano sul percorso tra \texttt{v} e il rappresentante effettivo \texttt{p}. Il trucco è quello di rendere i percorsi per tutti quei nodi più brevi, impostando il genitore di ogni vertice visitato direttamente su \texttt{p}.
+\begin{figure}[tbph]
+	\centering
+	\includegraphics[width=0.7\linewidth]{dsu2}
+	\caption{compressione del percorso.}
+	\label{fig:dsu2}
+\end{figure}
 
+È possibile vedere l'operazione in \cref{fig:dsu2}. A sinistra c'è un albero e sul lato destro c'è l'albero compresso dopo aver chiamato \texttt{find\_set(7)}, che accorcia i percorsi per i nodi visitati 7,5,3 e 2.
+L'implementazione nuova di \texttt{find\_set} è in \cref{lst:find-set-dsu}.
+\begin{lstlisting}[caption={nuova implementazione di \texttt{find\_set.}},label=lst:find-set-dsu]
+	int find_set(int v) {
+		if (v == parent[v])
+		return v;
+		return parent[v] = find_set(parent[v]);
+	}
+\end{lstlisting}
+
+La semplice implementazione fa ciò che era previsto: per prima cosa trova il rappresentante dell'insieme (vertice radice) e poi, durante lo svolgimento dello stack, i nodi visitati vengono collegati direttamente al rappresentante. \par Questa modifica raggiunge la complessità temporale $O(\log n)$ in media per chiamata. 
+\subsubsection{Ottimizzazione: unione per dimensione/grado}
+In questa ottimizzazione si modifica \texttt{union\_set}. Si cambia quale albero verrà attaccato all'altro. Nell'implementazione ingenua il secondo albero si attaccava sempre a primo. In pratica ciò può portare ad alberi contenenti catene di lunghezza $O(n)$. 
 \end{document}
